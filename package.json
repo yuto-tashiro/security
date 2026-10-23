@@ -1,0 +1,29 @@
+{
+  "name": "security",
+  "version": "1.0.0",
+  "description": "医療・介護・福祉のセラピスト向けIT・情報セキュリティ基礎学習 全12回",
+  "scripts": {
+    "build": "node scripts/build.mjs",
+    "dev": "wrangler dev",
+    "check": "node --check public/app.js && node scripts/build.mjs",
+    "deploy": "npm run check && wrangler deploy",
+    "test": "node --test tests/*.test.mjs"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/yuto-tashiro/security.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "module",
+  "bugs": {
+    "url": "https://github.com/yuto-tashiro/security/issues"
+  },
+  "homepage": "https://github.com/yuto-tashiro/security#readme",
+  "devDependencies": {
+    "@playwright/test": "^1.64.1",
+    "wrangler": "^4.152.0"
+  },
+  "private": true
+}

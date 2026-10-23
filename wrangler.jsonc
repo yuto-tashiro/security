@@ -1,0 +1,16 @@
+{
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "therapist-security-learning",
+  "account_id": "8a5b698ae4fb727ecc4051e0e45d9624",
+  "compatibility_date": "2026-10-23",
+  "assets": {
+    "directory": "./dist"
+  },
+  "routes": [
+    {
+      "pattern": "security.hiluco.net",
+      "custom_domain": true
+    }
+  ],
+  "workers_dev": true
+}
