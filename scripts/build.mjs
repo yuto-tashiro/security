@@ -1,6 +1,6 @@
 import {rm,mkdir,cp,readFile} from 'node:fs/promises';
 const lessons=JSON.parse(await readFile('public/lessons.json','utf8'));
 if(lessons.length!==12)throw Error('12 lessons required');
-const ids=new Set();
-for(const l of lessons){if(ids.has(l.id))throw Error('duplicate id');ids.add(l.id);if(!l.title||!l.goal||l.sections.length<3||l.flow.length<3||!l.example||!l.action||l.quiz.length!==3)throw Error(`Incomplete lesson ${l.id}`);for(const q of l.quiz){if(q.options.length!==3||!Number.isInteger(q.answer)||q.answer<0||q.answer>=q.options.length||!q.explanation)throw Error('Invalid quiz');}}
-await rm('dist',{recursive:true,force:true});await mkdir('dist',{recursive:true});await cp('public','dist',{recursive:true});console.log('Built: 12 lessons, 36 validated questions.');
+const ids=new Set();let questions=0;
+for(const l of lessons){if(ids.has(l.id)||!Number.isInteger(l.id)||l.id<1||l.id>12)throw Error('Invalid lesson id');ids.add(l.id);if(!l.title||!l.goal||l.sections.length<3||l.flow.length<3||!l.example||!l.action||!l.minutes||!Number.isInteger(l.revision)||l.quiz.length!==(l.id===12?10:l.id>=10?5:3))throw Error(`Incomplete lesson ${l.id}`);for(const q of [...l.quiz,...(l.cases||[])]){if(!q.question||q.options.length<3||q.options.length>4||!Number.isInteger(q.answer)||q.answer<0||q.answer>=q.options.length||!q.explanation)throw Error('Invalid quiz');}for(const t of l.tables||[]){if(t.rows.some(r=>r.length!==t.headers.length))throw Error('Table shape mismatch');}questions+=l.quiz.length;}
+await rm('dist',{recursive:true,force:true});await mkdir('dist',{recursive:true});await cp('public','dist',{recursive:true});console.log(`Built: ${lessons.length} lessons, ${questions} validated questions and 3 practice cases.`);
