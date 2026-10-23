@@ -1,0 +1,4 @@
+import {test} from 'node:test';import assert from 'node:assert/strict';import {gradeQuiz} from '../public/quiz.js';
+const multi={type:'multiple',options:['A','B','C','D'],answer:[0,2]};
+test('Multiple selection requires the exact set, independent of order',()=>{assert.equal(gradeQuiz([multi],[[2,0]]).score,1);for(const selected of [[0],[2],[0,1,2],[],[0,0,2],[-1,0,2],[0,2,9]])assert.equal(gradeQuiz([multi],[selected]).score,0);});
+test('Unanswered, single and true-false questions are graded separately',()=>{const questions=[{type:'single',options:['A','B','C'],answer:1},{type:'boolean',options:['正しい','誤り'],answer:0},multi];assert.deepEqual(gradeQuiz(questions,[null,0,[]]).unanswered,[0,2]);assert.equal(gradeQuiz(questions,[1,0,[0,2]]).score,3);assert.equal(gradeQuiz(questions,[0,1,[0]]).score,0);});
