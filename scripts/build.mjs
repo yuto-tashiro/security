@@ -1,11 +1,15 @@
+import {generateLessonDiagrams} from './generate-lesson-diagrams.mjs';
+await generateLessonDiagrams();
 import {rm,mkdir,cp,readFile} from 'node:fs/promises';
 const lessons=JSON.parse(await readFile('public/lessons.json','utf8'));
 if(lessons.length!==12)throw Error('12 lessons required');
+if(new Set(lessons.map(l=>l.opening.image)).size!==12)throw Error('Each lesson requires its own diagram');
 const ids=new Set();let questions=0;
 for(const l of lessons){
  if(ids.has(l.id)||!Number.isInteger(l.id)||l.id<1||l.id>12)throw Error('Invalid lesson id');ids.add(l.id);
  if(!l.title||!l.goal||l.sections.length<3||l.flow.length<3||!l.example||!l.action||!Number.isInteger(l.revision)||!l.securityConnection||l.summary?.length<3||!l.updatedAt||l.quiz.length!==(l.id===12?10:5))throw Error(`Incomplete lesson ${l.id}`);
  if(!l.opening?.story||!l.opening.image?.startsWith('/images/')||l.opening.lookFor?.length<2||l.analogy?.items?.length!==3||!l.analogy.limit||l.fieldCases?.length!==2||!['flow','compare','layers'].includes(l.learningMap?.kind)||l.learningMap.steps.length<3||l.learningMap.steps.some(s=>!s.label||!s.everyday||!s.detail||!s.icon))throw Error('Incomplete field learning content');
+ if(!l.opening.image.endsWith('.svg')||!l.opening.diagramTitle||!l.opening.alt||!l.opening.imageWidth||!l.opening.imageHeight)throw Error('Incomplete topic diagram');
  await readFile('public'+l.opening.image);
  for(const q of l.quiz){
   const expected=Array.isArray(q.answer)?q.answer:[q.answer];
