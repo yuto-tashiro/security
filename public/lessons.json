@@ -142,7 +142,6 @@
       }
     ],
     "revision": 3,
-    "minutes": "25〜30",
     "source": null,
     "sourceScope": "資料の各回骨子に沿って授業本文・問題を展開",
     "updatedAt": "2026-10-23",
@@ -302,7 +301,6 @@
       }
     ],
     "revision": 3,
-    "minutes": "25〜30",
     "source": null,
     "sourceScope": "資料の各回骨子に沿って授業本文・問題を展開",
     "flowKind": "concepts",
@@ -469,7 +467,6 @@
       }
     ],
     "revision": 3,
-    "minutes": "25〜30",
     "source": null,
     "sourceScope": "資料の各回骨子に沿って授業本文・問題を展開",
     "updatedAt": "2026-10-23",
@@ -656,7 +653,6 @@
       }
     ],
     "revision": 3,
-    "minutes": "30〜35",
     "source": null,
     "sourceScope": "資料の各回骨子に沿って授業本文・問題を展開",
     "updatedAt": "2026-10-23",
@@ -818,7 +814,6 @@
       }
     ],
     "revision": 3,
-    "minutes": "30〜35",
     "source": null,
     "sourceScope": "資料の各回骨子に沿って授業本文・問題を展開",
     "updatedAt": "2026-10-23",
@@ -993,7 +988,6 @@
       }
     ],
     "revision": 3,
-    "minutes": "30〜35",
     "source": null,
     "sourceScope": "資料の各回骨子に沿って授業本文・問題を展開",
     "updatedAt": "2026-10-23",
@@ -1191,7 +1185,6 @@
       }
     ],
     "revision": 3,
-    "minutes": "30〜40",
     "source": null,
     "sourceScope": "資料の各回骨子に沿って授業本文・問題を展開",
     "tables": [
@@ -1462,7 +1455,6 @@
       }
     ],
     "revision": 3,
-    "minutes": "30〜35",
     "source": null,
     "sourceScope": "ご提供の第8回本文を反映",
     "sourceLabel": "ご提供の教材テキスト（第8〜12回）",
@@ -1834,7 +1826,6 @@
       }
     ],
     "revision": 3,
-    "minutes": "35",
     "source": null,
     "sourceScope": "ご提供の第9回本文を反映",
     "sourceLabel": "ご提供の教材テキスト（第8〜12回）",
@@ -2150,7 +2141,6 @@
         "type": "single"
       }
     ],
-    "minutes": "35〜40",
     "tables": [
       {
         "title": "攻撃と代表的な対策",
@@ -2369,7 +2359,6 @@
         "type": "single"
       }
     ],
-    "minutes": "35〜40",
     "tables": [
       {
         "title": "バックアップの3-2-1",
@@ -2649,7 +2638,6 @@
         "type": "single"
       }
     ],
-    "minutes": "40〜50",
     "tables": [
       {
         "title": "リスク評価マトリクス（学習用）",
